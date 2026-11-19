@@ -61,6 +61,11 @@ class AnalysisReport:
     vulnerability_source: str = "OSV.dev API"
     complete: bool = True
     schema_version: str = "1.0"
+    # Populated by analyze_project after findings are collected; stores
+    # AdvisoryGroup records across all findings so JSON output and writers
+    # share the same deduplicated, case-insensitive grouping. Typed as a
+    # bare ``list`` to avoid a circular import with ``advisories``.
+    grouped_advisories: list[Any] = field(default_factory=list)
 
 
 def to_jsonable(value: Any) -> Any:

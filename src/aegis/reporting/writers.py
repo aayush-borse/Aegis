@@ -51,11 +51,19 @@ def write_markdown(
         len(finding.vulnerabilities) for finding in report.findings
     )
 
-    advisory_groups = [
-        (finding, group)
-        for finding in report.findings
-        for group in group_advisories(finding.vulnerabilities)
-    ]
+    # Prefer the engine-precomputed, case-insensitively grouped advisory
+    # list when available so JSON and Markdown stay consistent. Fall back
+    # to per-finding grouping for reports constructed outside the engine
+    # (e.g. tests, ad-hoc reports) that do not populate the field.
+    precomputed_groups = getattr(report, "grouped_advisories", None)
+    if precomputed_groups:
+        advisory_groups = precomputed_groups
+    else:
+        advisory_groups = [
+            group
+            for finding in report.findings
+            for group in group_advisories(finding.vulnerabilities)
+        ]
 
     lines.extend(
         [
@@ -68,9 +76,9 @@ def write_markdown(
     )
 
     if advisory_groups:
-        for finding, group in advisory_groups:
+        for group in advisory_groups:
             lines.append(
-                f"- **{finding.dependency.name} — {group.canonical_id}:** "
+                f"- **{group.canonical_id}:** "
                 f"{len(group.records)} OSV record(s)"
             )
             lines.append(f"  - **Identifiers:** {', '.join(group.identifiers)}")
