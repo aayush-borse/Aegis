@@ -1,0 +1,1649 @@
+diff --git a/aegis-report.json b/aegis-report.json
+index 119ae09..c68f472 100644
+--- a/aegis-report.json
++++ b/aegis-report.json
+@@ -1,25 +1,45 @@
+ {
+-  "project": "C:\\Users\\Aayush(work)\\aegis-demo",
+-  "generated_at": "2026-10-23T11:55:45.610074+00:00",
++  "project": "/home/z/my-project/audit/Aegis",
++  "generated_at": "2026-11-19T01:05:33.719684+00:00",
+   "manifests": [
+-    "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt"
++    "/home/z/my-project/audit/Aegis/pyproject.toml"
+   ],
+   "dependencies": [
+     {
+-      "name": "requests",
+-      "specifier": "==2.19.0",
+-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-      "line_number": 1,
++      "name": "packaging",
++      "specifier": "<27.0,>=23.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
+       "direct": true,
+       "extras": [],
+       "marker": null,
+       "url": null
+     },
+     {
+-      "name": "flask",
+-      "specifier": "==2.0.0",
+-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-      "line_number": 2,
++      "name": "tomli",
++      "specifier": ">=2.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
++      "direct": true,
++      "extras": [],
++      "marker": "python_version < \"3.11\"",
++      "url": null
++    },
++    {
++      "name": "pytest",
++      "specifier": "<9.0,>=8.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
++      "direct": true,
++      "extras": [],
++      "marker": null,
++      "url": null
++    },
++    {
++      "name": "ruff",
++      "specifier": "<1.0,>=0.11",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
+       "direct": true,
+       "extras": [],
+       "marker": null,
+@@ -29,10 +49,40 @@
+   "findings": [
+     {
+       "dependency": {
+-        "name": "requests",
+-        "specifier": "==2.19.0",
+-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-        "line_number": 1,
++        "name": "packaging",
++        "specifier": "<27.0,>=23.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
++        "direct": true,
++        "extras": [],
++        "marker": null,
++        "url": null
++      },
++      "vulnerabilities": [],
++      "recommended_versions": [],
++      "status": "checked"
++    },
++    {
++      "dependency": {
++        "name": "tomli",
++        "specifier": ">=2.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
++        "direct": true,
++        "extras": [],
++        "marker": "python_version < \"3.11\"",
++        "url": null
++      },
++      "vulnerabilities": [],
++      "recommended_versions": [],
++      "status": "checked"
++    },
++    {
++      "dependency": {
++        "name": "pytest",
++        "specifier": "<9.0,>=8.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
+         "direct": true,
+         "extras": [],
+         "marker": null,
+@@ -40,310 +90,12 @@
+       },
+       "vulnerabilities": [
+         {
+-          "id": "GHSA-9hjg-9r4m-mvj7",
+-          "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+-          "details": "### Impact\n\nDue to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.\n\n### Workarounds\nFor older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).\n\n### References\nhttps://github.com/psf/requests/pull/6965\nhttps://seclists.org/fulldisclosure/2025/Jun/2",
+-          "aliases": [
+-            "CVE-2024-47081",
+-            "PYSEC-2026-1872"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.32.4"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2024-47081",
+-            "https://github.com/psf/requests/pull/6965",
+-            "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef",
+-            "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7",
+-            "https://github.com/psf/requests",
+-            "https://github.com/psf/requests/releases/tag/v2.32.4",
+-            "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2026-1872.yaml",
+-            "https://pypi.org/project/requests",
+-            "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env",
+-            "https://seclists.org/fulldisclosure/2025/Jun/2",
+-            "http://www.openwall.com/lists/oss-security/2025/06/03/11",
+-            "http://www.openwall.com/lists/oss-security/2025/06/03/9",
+-            "http://www.openwall.com/lists/oss-security/2025/06/04/1",
+-            "http://www.openwall.com/lists/oss-security/2025/06/04/6"
+-          ],
+-          "modified": "2026-10-19T20:00:04.716114530Z",
+-          "published": "2025-06-09T19:06:08Z",
+-          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+-          "fixed_versions": [
+-            "2.32.4"
+-          ]
+-        },
+-        {
+-          "id": "GHSA-9wx4-h78v-vm56",
+-          "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+-          "details": "When using a `requests.Session`, if the first request to a given origin is made with `verify=False`, TLS certificate verification may remain disabled for all subsequent requests to that origin, even if `verify=True` is explicitly specified later.\n\nThis occurs because the underlying connection is reused from the session's connection pool, causing the initial TLS verification setting to persist for the lifetime of the pooled connection. As a result, applications may unintentionally send requests without certificate verification, leading to potential man-in-the-middle attacks and compromised confidentiality or integrity.\n\nThis behavior affects versions of `requests` prior to 2.32.0.",
+-          "aliases": [
+-            "CVE-2024-35195",
+-            "PYSEC-2026-1873"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.32.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2024-35195",
+-            "https://github.com/psf/requests/pull/6655",
+-            "https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac",
+-            "https://github.com/psf/requests",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ"
+-          ],
+-          "modified": "2026-09-10T03:50:13.740879755Z",
+-          "published": "2024-05-20T20:15:00Z",
+-          "severity": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N",
+-          "fixed_versions": [
+-            "2.32.0"
+-          ]
+-        },
+-        {
+-          "id": "GHSA-gc5v-m9x4-r6x2",
+-          "summary": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+-          "details": "### Impact\nThe `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file already exists, it is reused without validation. A local attacker with write access to the temp directory could pre-create a malicious file that would be loaded in place of the legitimate one.\n\n### Affected usages\n**Standard usage of the Requests library is not affected by this vulnerability.** Only applications that call `extract_zipped_paths()` directly are impacted.\n\n### Remediation\nUpgrade to at least Requests 2.33.0, where the library now extracts files to a non-deterministic location.\n\nIf developers are unable to upgrade, they can set `TMPDIR` in their environment to a directory with restricted write access.",
+-          "aliases": [
+-            "CVE-2026-25645",
+-            "PYSEC-2026-2275"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.33.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2026-25645",
+-            "https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7",
+-            "https://github.com/psf/requests",
+-            "https://github.com/psf/requests/releases/tag/v2.33.0"
+-          ],
+-          "modified": "2026-09-10T03:50:39.207922076Z",
+-          "published": "2026-03-25T16:56:28Z",
+-          "severity": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
+-          "fixed_versions": [
+-            "2.33.0"
+-          ]
+-        },
+-        {
+-          "id": "GHSA-j8r2-6x86-q33q",
+-          "summary": "Unintended leak of Proxy-Authorization header in requests",
+-          "details": "### Impact\n\nSince Requests v2.3.0, Requests has been vulnerable to potentially leaking `Proxy-Authorization` headers to destination servers, specifically during redirects to an HTTPS origin. This is a product of how `rebuild_proxies` is used to recompute and [reattach the `Proxy-Authorization` header](https://github.com/psf/requests/blob/f2629e9e3c7ce3c3c8c025bcd8db551101cbc773/requests/sessions.py#L319-L328) to requests when redirected. Note this behavior has _only_ been observed to affect proxied requests when credentials are supplied in the URL user information component (e.g. `https://username:password@proxy:8080`).\n\n**Current vulnerable behavior(s):**\n\n1. HTTP → HTTPS: **leak**\n2. HTTPS → HTTP: **no leak**\n3. HTTPS → HTTPS: **leak**\n4. HTTP → HTTP: **no leak**\n\nFor HTTP connections sent through the proxy, the proxy will identify the header in the request itself and remove it prior to forwarding to the destination server. However when sent over HTTPS, the `Proxy-Authorization` header must be sent in the CONNECT request as the proxy has no visibility into further tunneled requests. This results in Requests forwarding the header to the destination server unintentionally, allowing a malicious actor to potentially exfiltrate those credentials.\n\nThe reason this currently works for HTTPS connections in Requests is the `Proxy-Authorization` header is also handled by urllib3 with our usage of the ProxyManager in adapters.py with [`proxy_manager_for`](https://github.com/psf/requests/blob/f2629e9e3c7ce3c3c8c025bcd8db551101cbc773/requests/adapters.py#L199-L235). This will compute the required proxy headers in `proxy_headers` and pass them to the Proxy Manager, avoiding attaching them directly to the Request object. This will be our preferred option going forward for default usage.\n\n### Patches\nStarting in Requests v2.31.0, Requests will no longer attach this header to redirects with an HTTPS destination. This should have no negative impacts on the default behavior of the library as the proxy credentials are already properly being handled by urllib3's ProxyManager.\n\nFor users with custom adapters, this _may_ be potentially breaking if you were already working around this behavior. The previous functionality of `rebuild_proxies` doesn't make sense in any case, so we would encourage any users impacted to migrate any handling of Proxy-Authorization directly into their custom adapter.\n\n### Workarounds\nFor users who are not able to update Requests immediately, there is one potential workaround.\n\nYou may disable redirects by setting `allow_redirects` to `False` on all calls through Requests top-level APIs. Note that if you're currently relying on redirect behaviors, you will need to capture the 3xx response codes and ensure a new request is made to the redirect destination.\n```\nimport requests\nr = requests.get('http://github.com/', allow_redirects=False)\n```\n\n### Credits\n\nThis vulnerability was discovered and disclosed by the following individuals.\n\nDennis Brinkrolf, Haxolot (https://haxolot.com/)\nTobias Funke, (tobiasfunke93@gmail.com)",
+-          "aliases": [
+-            "CVE-2023-32681",
+-            "PYSEC-2023-74"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "2.3.0"
+-                },
+-                {
+-                  "fixed": "2.31.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2023-32681",
+-            "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5",
+-            "https://github.com/psf/requests",
+-            "https://github.com/psf/requests/releases/tag/v2.31.0",
+-            "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2023-74.yaml",
+-            "https://lists.debian.org/debian-lts-announce/2023/06/msg00018.html",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KOYASTZDGQG2BWLSNBPL3TQRL2G7QYNZ",
+-            "https://security.gentoo.org/glsa/202309-08"
+-          ],
+-          "modified": "2026-09-10T03:50:01.756149727Z",
+-          "published": "2023-05-22T20:36:32Z",
+-          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N",
+-          "fixed_versions": [
+-            "2.31.0"
+-          ]
+-        },
+-        {
+-          "id": "GHSA-x84v-xcm2-53pg",
+-          "summary": "Insufficiently Protected Credentials in Requests",
+-          "details": "The Requests package through 2.19.1 before 2018-09-14 for Python sends an HTTP Authorization header to an http URI upon receiving a same-hostname https-to-http redirect, which makes it easier for remote attackers to discover credentials by sniffing the network.",
+-          "aliases": [
+-            "CVE-2018-18074",
+-            "PYSEC-2018-28"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.20.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://nvd.nist.gov/vuln/detail/CVE-2018-18074",
+-            "https://github.com/requests/requests/issues/4716",
+-            "https://github.com/requests/requests/pull/4718",
+-            "https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff",
+-            "https://access.redhat.com/errata/RHSA-2019:2035",
+-            "https://bugs.debian.org/910766",
+-            "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2018-28.yaml",
+-            "https://github.com/requests/requests",
+-            "https://usn.ubuntu.com/3790-1",
+-            "https://usn.ubuntu.com/3790-2",
+-            "https://www.oracle.com/security-alerts/cpujul2022.html",
+-            "http://docs.python-requests.org/en/master/community/updates/#release-and-version-history",
+-            "http://lists.opensuse.org/opensuse-security-announce/2019-07/msg00024.html"
+-          ],
+-          "modified": "2024-10-21T21:42:55.896669Z",
+-          "published": "2018-10-29T19:06:46Z",
+-          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+-          "fixed_versions": [
+-            "2.20.0"
+-          ]
+-        },
+-        {
+-          "id": "PYSEC-2018-28",
+-          "summary": "No summary supplied by OSV.",
+-          "details": "The Requests package before 2.20.0 for Python sends an HTTP Authorization header to an http URI upon receiving a same-hostname https-to-http redirect, which makes it easier for remote attackers to discover credentials by sniffing the network.",
+-          "aliases": [
+-            "CVE-2018-18074",
+-            "GHSA-x84v-xcm2-53pg"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "GIT",
+-              "repo": "https://github.com/requests/requests",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "c45d7c49ea75133e52ab22a8e9e13173938e36ff"
+-                }
+-              ]
+-            },
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.20.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/requests/requests/pull/4718",
+-            "https://github.com/requests/requests/issues/4716",
+-            "https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff",
+-            "https://bugs.debian.org/910766",
+-            "https://usn.ubuntu.com/3790-1/",
+-            "http://docs.python-requests.org/en/master/community/updates/#release-and-version-history",
+-            "https://usn.ubuntu.com/3790-2/",
+-            "http://lists.opensuse.org/opensuse-security-announce/2019-07/msg00024.html",
+-            "https://access.redhat.com/errata/RHSA-2019:2035",
+-            "https://github.com/advisories/GHSA-x84v-xcm2-53pg"
+-          ],
+-          "modified": "2023-11-08T04:00:04.815794Z",
+-          "published": "2018-10-09T17:29:00Z",
+-          "severity": null,
+-          "fixed_versions": [
+-            "2.20.0"
+-          ]
+-        },
+-        {
+-          "id": "PYSEC-2023-74",
+-          "summary": "No summary supplied by OSV.",
+-          "details": "Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `rebuild_proxies` to reattach the `Proxy-Authorization` header to requests. For HTTP connections sent through the tunnel, the proxy will identify the header in the request itself and remove it prior to forwarding to the destination server. However when sent over HTTPS, the `Proxy-Authorization` header must be sent in the CONNECT request as the proxy has no visibility into the tunneled request. This results in Requests forwarding proxy credentials to the destination server unintentionally, allowing a malicious actor to potentially exfiltrate sensitive information. This issue has been patched in version 2.31.0.\n\n",
++          "id": "GHSA-6w46-j5rx-g56g",
++          "summary": "pytest has vulnerable tmpdir handling",
++          "details": "pytest through 9.0.2 on UNIX relies on directories with the `/tmp/pytest-of-{user}` name pattern, which allows local users to cause a denial of service or possibly gain privileges.",
+           "aliases": [
+-            "CVE-2023-32681",
+-            "GHSA-j8r2-6x86-q33q"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "GIT",
+-              "repo": "https://github.com/psf/requests",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5"
+-                }
+-              ]
+-            },
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "2.3.0"
+-                },
+-                {
+-                  "fixed": "2.31.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q",
+-            "https://github.com/psf/requests/releases/tag/v2.31.0",
+-            "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y/"
+-          ],
+-          "modified": "2023-11-08T04:12:35.436175Z",
+-          "published": "2023-05-26T18:15:00Z",
+-          "severity": null,
+-          "fixed_versions": [
+-            "2.31.0"
+-          ]
+-        },
+-        {
+-          "id": "PYSEC-2026-1872",
+-          "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+-          "details": "### Impact\n\nDue to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.\n\n### Workarounds\nFor older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).\n\n### References\nhttps://github.com/psf/requests/pull/6965\nhttps://seclists.org/fulldisclosure/2025/Jun/2",
+-          "aliases": [
+-            "CVE-2024-47081",
+-            "GHSA-9hjg-9r4m-mvj7"
++            "CVE-2025-71176",
++            "PYSEC-2026-1845"
+           ],
+           "affected_ranges": [
+             {
+@@ -353,41 +105,34 @@
+                   "introduced": "0"
+                 },
+                 {
+-                  "fixed": "2.32.4"
++                  "fixed": "9.0.3"
+                 }
+               ]
+             }
+           ],
+           "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2024-47081",
+-            "https://github.com/psf/requests/pull/6965",
+-            "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef",
+-            "https://github.com/psf/requests",
+-            "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env",
+-            "https://seclists.org/fulldisclosure/2025/Jun/2",
+-            "http://seclists.org/fulldisclosure/2025/Jun/2",
+-            "http://www.openwall.com/lists/oss-security/2025/06/03/11",
+-            "http://www.openwall.com/lists/oss-security/2025/06/03/9",
+-            "http://www.openwall.com/lists/oss-security/2025/06/04/1",
+-            "http://www.openwall.com/lists/oss-security/2025/06/04/6",
+-            "https://pypi.org/project/requests",
+-            "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+-          ],
+-          "modified": "2026-07-07T17:47:00.332079836Z",
+-          "published": "2026-07-07T16:02:54.151964Z",
+-          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
++            "https://nvd.nist.gov/vuln/detail/CVE-2025-71176",
++            "https://github.com/pytest-dev/pytest/issues/13669",
++            "https://github.com/pytest-dev/pytest/pull/14343",
++            "https://github.com/pytest-dev/pytest/commit/95d8423bd24992deea5b9df32555fa1741679e2c",
++            "https://github.com/pytest-dev/pytes",
++            "https://github.com/pytest-dev/pytest/releases/tag/9.0.3",
++            "https://www.openwall.com/lists/oss-security/2026/01/21/5"
++          ],
++          "modified": "2026-09-10T03:50:32.768043789Z",
++          "published": "2026-01-22T06:30:29Z",
++          "severity": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+           "fixed_versions": [
+-            "2.32.4"
++            "9.0.3"
+           ]
+         },
+         {
+-          "id": "PYSEC-2026-1873",
+-          "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+-          "details": "When using a `requests.Session`, if the first request to a given origin is made with `verify=False`, TLS certificate verification may remain disabled for all subsequent requests to that origin, even if `verify=True` is explicitly specified later.\n\nThis occurs because the underlying connection is reused from the session's connection pool, causing the initial TLS verification setting to persist for the lifetime of the pooled connection. As a result, applications may unintentionally send requests without certificate verification, leading to potential man-in-the-middle attacks and compromised confidentiality or integrity.\n\nThis behavior affects versions of `requests` prior to 2.32.0.",
++          "id": "PYSEC-2026-1845",
++          "summary": "pytest has vulnerable tmpdir handling",
++          "details": "pytest through 9.0.2 on UNIX relies on directories with the `/tmp/pytest-of-{user}` name pattern, which allows local users to cause a denial of service or possibly gain privileges.",
+           "aliases": [
+-            "CVE-2024-35195",
+-            "GHSA-9wx4-h78v-vm56"
++            "CVE-2025-71176",
++            "GHSA-6w46-j5rx-g56g"
+           ],
+           "affected_ranges": [
+             {
+@@ -397,196 +142,68 @@
+                   "introduced": "0"
+                 },
+                 {
+-                  "fixed": "2.32.0"
++                  "fixed": "9.0.3"
+                 }
+               ]
+             }
+           ],
+           "references": [
+-            "https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2024-35195",
+-            "https://github.com/psf/requests/pull/6655",
+-            "https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac",
+-            "https://github.com/psf/requests",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q",
+-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ",
+-            "https://pypi.org/project/requests",
+-            "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+-          ],
+-          "modified": "2026-07-07T17:46:36.762141019Z",
+-          "published": "2026-07-07T11:45:42.890131Z",
+-          "severity": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N",
++            "https://nvd.nist.gov/vuln/detail/CVE-2025-71176",
++            "https://github.com/pytest-dev/pytest/issues/13669",
++            "https://github.com/pytest-dev/pytest/pull/14343",
++            "https://github.com/pytest-dev/pytest/commit/95d8423bd24992deea5b9df32555fa1741679e2c",
++            "https://github.com/pytest-dev/pytes",
++            "https://github.com/pytest-dev/pytest/releases/tag/9.0.3",
++            "https://www.openwall.com/lists/oss-security/2026/01/21/5",
++            "https://pypi.org/project/pytest",
++            "https://github.com/advisories/GHSA-6w46-j5rx-g56g"
++          ],
++          "modified": "2026-07-07T17:47:51.848748359Z",
++          "published": "2026-07-07T16:03:19.758250Z",
++          "severity": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+           "fixed_versions": [
+-            "2.32.0"
+-          ]
+-        },
+-        {
+-          "id": "PYSEC-2026-2275",
+-          "summary": "No summary supplied by OSV.",
+-          "details": "Requests is a HTTP library. Prior to version 2.33.0, the `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file already exists, it is reused without validation. A local attacker with write access to the temp directory could pre-create a malicious file that would be loaded in place of the legitimate one. Standard usage of the Requests library is not affected by this vulnerability. Only applications that call `extract_zipped_paths()` directly are impacted. Starting in version 2.33.0, the library extracts files to a non-deterministic location. If developers are unable to upgrade, they can set `TMPDIR` in their environment to a directory with restricted write access.",
+-          "aliases": [
+-            "CVE-2026-25645",
+-            "GHSA-gc5v-m9x4-r6x2"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.33.0"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/psf/requests/releases/tag/v2.33.0",
+-            "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2",
+-            "https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7"
+-          ],
+-          "modified": "2026-07-13T07:15:43.964902190Z",
+-          "published": "2026-03-25T17:16:52.970Z",
+-          "severity": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+-          "fixed_versions": [
+-            "2.33.0"
++            "9.0.3"
+           ]
+         }
+       ],
+       "recommended_versions": [
+-        "2.20.0",
+-        "2.31.0",
+-        "2.32.0",
+-        "2.32.4",
+-        "2.33.0"
++        "9.0.3"
+       ],
+       "status": "checked"
+     },
+     {
+       "dependency": {
+-        "name": "flask",
+-        "specifier": "==2.0.0",
+-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-        "line_number": 2,
++        "name": "ruff",
++        "specifier": "<1.0,>=0.11",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
+         "direct": true,
+         "extras": [],
+         "marker": null,
+         "url": null
+       },
+-      "vulnerabilities": [
+-        {
+-          "id": "GHSA-68rp-wp8r-4726",
+-          "summary": "Flask session does not add `Vary: Cookie` header when accessed in some ways",
+-          "details": "When the `session` object is accessed, Flask should set the `Vary: Cookie` header. This instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python `in` operator were overlooked.\n\nThe severity depends on the application's use of the session, and the cache's behavior regarding cookies. The risk depends on all these conditions being met.\n\n1. The application must be hosted behind a caching proxy that does not ignore responses with cookies.\n2. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.\n3. The application accesses the session in a way that does not access the values, only the keys, and does not mutate the session.",
+-          "aliases": [
+-            "CVE-2026-27205",
+-            "PYSEC-2026-2151"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "3.1.3"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2026-27205",
+-            "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4",
+-            "https://github.com/pallets/flask",
+-            "https://github.com/pallets/flask/releases/tag/3.1.3"
+-          ],
+-          "modified": "2026-09-10T03:49:54.354981590Z",
+-          "published": "2026-02-19T20:45:41Z",
+-          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+-          "fixed_versions": [
+-            "3.1.3"
+-          ]
+-        },
+-        {
+-          "id": "GHSA-m2qf-hxjv-5gpq",
+-          "summary": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header",
+-          "details": "When all of the following conditions are met, a response containing data intended for one client may be cached and subsequently sent by a proxy to other clients. If the proxy also caches `Set-Cookie` headers, it may send one client's `session` cookie to other clients. The severity depends on the application's use of the session, and the proxy's behavior regarding cookies. The risk depends on _all_ these conditions being met.\n\n1. The application must be hosted behind a caching proxy that does not strip cookies or ignore responses with cookies.\n2. The application sets [`session.permanent = True`](https://flask.palletsprojects.com/en/2.3.x/api/#flask.session.permanent).\n2. The application does not access or modify the session at any point during a request.\n4. [`SESSION_REFRESH_EACH_REQUEST`](https://flask.palletsprojects.com/en/2.3.x/config/#SESSION_REFRESH_EACH_REQUEST) is enabled (the default).\n5. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.\n\nThis happens because vulnerable versions of Flask only set the `Vary: Cookie` header when the session is accessed or modified, not when it is refreshed (re-sent to update the expiration) without being accessed or modified.",
+-          "aliases": [
+-            "CVE-2023-30861",
+-            "PYSEC-2023-62"
+-          ],
+-          "affected_ranges": [
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "2.3.0"
+-                },
+-                {
+-                  "fixed": "2.3.2"
+-                }
+-              ]
+-            },
+-            {
+-              "type": "ECOSYSTEM",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "2.2.5"
+-                }
+-              ]
+-            }
+-          ],
+-          "references": [
+-            "https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq",
+-            "https://nvd.nist.gov/vuln/detail/CVE-2023-30861",
+-            "https://github.com/pallets/flask/commit/70f906c51ce49c485f1d355703e9cc3386b1cc2b",
+-            "https://github.com/pallets/flask/commit/afd63b16170b7c047f5758eb910c416511e9c965",
+-            "https://github.com/pallets/flask",
+-            "https://github.com/pallets/flask/releases/tag/2.2.5",
+-            "https://github.com/pallets/flask/releases/tag/2.3.2",
+-            "https://github.com/pypa/advisory-database/tree/main/vulns/flask/PYSEC-2023-62.yaml",
+-            "https://lists.debian.org/debian-lts-announce/2023/08/msg00024.html",
+-            "https://security.netapp.com/advisory/ntap-20230818-0006",
+-            "https://www.debian.org/security/2023/dsa-5442"
+-          ],
+-          "modified": "2026-09-10T03:50:01.763387498Z",
+-          "published": "2023-05-01T19:22:20Z",
+-          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+-          "fixed_versions": [
+-            "2.2.5",
+-            "2.3.2"
+-          ]
+-        },
++      "vulnerabilities": [],
++      "recommended_versions": [],
++      "status": "checked"
++    }
++  ],
++  "issues": [],
++  "vulnerability_source": "OSV.dev API",
++  "complete": true,
++  "schema_version": "1.0",
++  "grouped_advisories": [
++    {
++      "canonical_id": "CVE-2025-71176",
++      "records": [
+         {
+-          "id": "PYSEC-2023-62",
+-          "summary": "No summary supplied by OSV.",
+-          "details": "Flask is a lightweight WSGI web application framework. When all of the following conditions are met, a response containing data intended for one client may be cached and subsequently sent by the proxy to other clients. If the proxy also caches `Set-Cookie` headers, it may send one client's `session` cookie to other clients. The severity depends on the application's use of the session and the proxy's behavior regarding cookies. The risk depends on all these conditions being met.\n\n1. The application must be hosted behind a caching proxy that does not strip cookies or ignore responses with cookies.\n2. The application sets `session.permanent = True`\n3. The application does not access or modify the session at any point during a request.\n4. `SESSION_REFRESH_EACH_REQUEST` enabled (the default).\n5. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.\n\nThis happens because vulnerable versions of Flask only set the `Vary: Cookie` header when the session is accessed or modified, not when it is refreshed (re-sent to update the expiration) without being accessed or modified. This issue has been fixed in versions 2.3.2 and 2.2.5.",
++          "id": "GHSA-6w46-j5rx-g56g",
++          "summary": "pytest has vulnerable tmpdir handling",
++          "details": "pytest through 9.0.2 on UNIX relies on directories with the `/tmp/pytest-of-{user}` name pattern, which allows local users to cause a denial of service or possibly gain privileges.",
+           "aliases": [
+-            "CVE-2023-30861",
+-            "GHSA-m2qf-hxjv-5gpq"
++            "CVE-2025-71176",
++            "PYSEC-2026-1845"
+           ],
+           "affected_ranges": [
+-            {
+-              "type": "GIT",
+-              "repo": "https://github.com/pallets/flask",
+-              "events": [
+-                {
+-                  "introduced": "0"
+-                },
+-                {
+-                  "fixed": "70f906c51ce49c485f1d355703e9cc3386b1cc2b"
+-                },
+-                {
+-                  "fixed": "afd63b16170b7c047f5758eb910c416511e9c965"
+-                }
+-              ]
+-            },
+             {
+               "type": "ECOSYSTEM",
+               "events": [
+@@ -594,39 +211,34 @@
+                   "introduced": "0"
+                 },
+                 {
+-                  "fixed": "2.2.5"
+-                },
+-                {
+-                  "introduced": "2.3.0"
+-                },
+-                {
+-                  "fixed": "2.3.2"
++                  "fixed": "9.0.3"
+                 }
+               ]
+             }
+           ],
+           "references": [
+-            "https://github.com/pallets/flask/commit/70f906c51ce49c485f1d355703e9cc3386b1cc2b",
+-            "https://github.com/pallets/flask/releases/tag/2.3.2",
+-            "https://github.com/pallets/flask/releases/tag/2.2.5",
+-            "https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq",
+-            "https://github.com/pallets/flask/commit/afd63b16170b7c047f5758eb910c416511e9c965"
+-          ],
+-          "modified": "2023-11-08T04:12:28.231927Z",
+-          "published": "2023-05-02T18:15:00Z",
+-          "severity": null,
++            "https://nvd.nist.gov/vuln/detail/CVE-2025-71176",
++            "https://github.com/pytest-dev/pytest/issues/13669",
++            "https://github.com/pytest-dev/pytest/pull/14343",
++            "https://github.com/pytest-dev/pytest/commit/95d8423bd24992deea5b9df32555fa1741679e2c",
++            "https://github.com/pytest-dev/pytes",
++            "https://github.com/pytest-dev/pytest/releases/tag/9.0.3",
++            "https://www.openwall.com/lists/oss-security/2026/01/21/5"
++          ],
++          "modified": "2026-09-10T03:50:32.768043789Z",
++          "published": "2026-01-22T06:30:29Z",
++          "severity": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+           "fixed_versions": [
+-            "2.2.5",
+-            "2.3.2"
++            "9.0.3"
+           ]
+         },
+         {
+-          "id": "PYSEC-2026-2151",
+-          "summary": "No summary supplied by OSV.",
+-          "details": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
++          "id": "PYSEC-2026-1845",
++          "summary": "pytest has vulnerable tmpdir handling",
++          "details": "pytest through 9.0.2 on UNIX relies on directories with the `/tmp/pytest-of-{user}` name pattern, which allows local users to cause a denial of service or possibly gain privileges.",
+           "aliases": [
+-            "CVE-2026-27205",
+-            "GHSA-68rp-wp8r-4726"
++            "CVE-2025-71176",
++            "GHSA-6w46-j5rx-g56g"
+           ],
+           "affected_ranges": [
+             {
+@@ -636,34 +248,30 @@
+                   "introduced": "0"
+                 },
+                 {
+-                  "fixed": "3.1.3"
++                  "fixed": "9.0.3"
+                 }
+               ]
+             }
+           ],
+           "references": [
+-            "https://github.com/pallets/flask/releases/tag/3.1.3",
+-            "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726",
+-            "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+-          ],
+-          "modified": "2026-07-13T07:15:25.033843440Z",
+-          "published": "2026-02-21T06:17:00.910Z",
+-          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
++            "https://nvd.nist.gov/vuln/detail/CVE-2025-71176",
++            "https://github.com/pytest-dev/pytest/issues/13669",
++            "https://github.com/pytest-dev/pytest/pull/14343",
++            "https://github.com/pytest-dev/pytest/commit/95d8423bd24992deea5b9df32555fa1741679e2c",
++            "https://github.com/pytest-dev/pytes",
++            "https://github.com/pytest-dev/pytest/releases/tag/9.0.3",
++            "https://www.openwall.com/lists/oss-security/2026/01/21/5",
++            "https://pypi.org/project/pytest",
++            "https://github.com/advisories/GHSA-6w46-j5rx-g56g"
++          ],
++          "modified": "2026-07-07T17:47:51.848748359Z",
++          "published": "2026-07-07T16:03:19.758250Z",
++          "severity": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+           "fixed_versions": [
+-            "3.1.3"
++            "9.0.3"
+           ]
+         }
+-      ],
+-      "recommended_versions": [
+-        "2.2.5",
+-        "2.3.2",
+-        "3.1.3"
+-      ],
+-      "status": "checked"
++      ]
+     }
+-  ],
+-  "issues": [],
+-  "vulnerability_source": "OSV.dev API",
+-  "complete": true,
+-  "schema_version": "1.0"
++  ]
+ }
+diff --git a/aegis-report.md b/aegis-report.md
+index 5e18dd4..193d332 100644
+--- a/aegis-report.md
++++ b/aegis-report.md
+@@ -1,117 +1,57 @@
+-# AEGIS Dependency Analysis
++# AEGIS Dependency Analysis & Evidence Report
+ 
+-- **Project:** `C:\Users\Aayush(work)\aegis-demo`
+-- **Generated:** 2026-10-23T11:55:45.610074+00:00
++- **Project:** `/home/z/my-project/audit/Aegis`
++- **Generated:** 2026-11-19T01:05:33.719684+00:00
+ - **Analysis complete:** yes
+-- **Manifests:** 1
+-- **Dependency declarations:** 2
++- **Manifests discovered:** 1
++- **Dependency declarations:** 4
+ 
+ ## Advisory Summary
+ 
+-- **Raw OSV records:** 14
+-- **Unique advisory groups:** 7
+-
+-- **requests — CVE-2018-18074:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2018-18074, GHSA-x84v-xcm2-53pg, PYSEC-2018-28
+-- **requests — CVE-2023-32681:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2023-32681, GHSA-j8r2-6x86-q33q, PYSEC-2023-74
+-- **requests — CVE-2024-35195:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2024-35195, GHSA-9wx4-h78v-vm56, PYSEC-2026-1873
+-- **requests — CVE-2024-47081:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2024-47081, GHSA-9hjg-9r4m-mvj7, PYSEC-2026-1872
+-- **requests — CVE-2026-25645:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2026-25645, GHSA-gc5v-m9x4-r6x2, PYSEC-2026-2275
+-- **flask — CVE-2023-30861:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2023-30861, GHSA-m2qf-hxjv-5gpq, PYSEC-2023-62
+-- **flask — CVE-2026-27205:** 2 OSV record(s)
+-  - **Identifiers:** CVE-2026-27205, GHSA-68rp-wp8r-4726, PYSEC-2026-2151
+-
+-## Findings
+-
+-### 1. requests==2.19.0
+-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:1`
+-- **Vulnerability query:** checked
+-- **Candidate fixed versions (review required):** 2.20.0, 2.31.0, 2.32.0, 2.32.4, 2.33.0
+-- **OSV ID:** GHSA-9hjg-9r4m-mvj7
+-  - **Summary:** Requests vulnerable to .netrc credentials leak via malicious URLs
+-  - **Aliases:** CVE-2024-47081, PYSEC-2026-1872
+-  - **Known fixed versions:** 2.32.4
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7, https://nvd.nist.gov/vuln/detail/CVE-2024-47081, https://github.com/psf/requests/pull/6965, https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef, https://github.com/advisories/GHSA-9hjg-9r4m-mvj7
+-- **OSV ID:** GHSA-9wx4-h78v-vm56
+-  - **Summary:** Requests `Session` object does not verify requests after making first request with verify=False
+-  - **Aliases:** CVE-2024-35195, PYSEC-2026-1873
+-  - **Known fixed versions:** 2.32.0
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56, https://nvd.nist.gov/vuln/detail/CVE-2024-35195, https://github.com/psf/requests/pull/6655, https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac, https://github.com/psf/requests
+-- **OSV ID:** GHSA-gc5v-m9x4-r6x2
+-  - **Summary:** Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function
+-  - **Aliases:** CVE-2026-25645, PYSEC-2026-2275
+-  - **Known fixed versions:** 2.33.0
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2, https://nvd.nist.gov/vuln/detail/CVE-2026-25645, https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7, https://github.com/psf/requests, https://github.com/psf/requests/releases/tag/v2.33.0
+-- **OSV ID:** GHSA-j8r2-6x86-q33q
+-  - **Summary:** Unintended leak of Proxy-Authorization header in requests
+-  - **Aliases:** CVE-2023-32681, PYSEC-2023-74
+-  - **Known fixed versions:** 2.31.0
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q, https://nvd.nist.gov/vuln/detail/CVE-2023-32681, https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5, https://github.com/psf/requests, https://github.com/psf/requests/releases/tag/v2.31.0
+-- **OSV ID:** GHSA-x84v-xcm2-53pg
+-  - **Summary:** Insufficiently Protected Credentials in Requests
+-  - **Aliases:** CVE-2018-18074, PYSEC-2018-28
+-  - **Known fixed versions:** 2.20.0
+-  - **References:** https://nvd.nist.gov/vuln/detail/CVE-2018-18074, https://github.com/requests/requests/issues/4716, https://github.com/requests/requests/pull/4718, https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff, https://access.redhat.com/errata/RHSA-2019:2035
+-- **OSV ID:** PYSEC-2018-28
+-  - **Summary:** No summary supplied by OSV.
+-  - **Aliases:** CVE-2018-18074, GHSA-x84v-xcm2-53pg
+-  - **Known fixed versions:** 2.20.0
+-  - **References:** https://github.com/requests/requests/pull/4718, https://github.com/requests/requests/issues/4716, https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff, https://bugs.debian.org/910766, https://usn.ubuntu.com/3790-1/
+-- **OSV ID:** PYSEC-2023-74
+-  - **Summary:** No summary supplied by OSV.
+-  - **Aliases:** CVE-2023-32681, GHSA-j8r2-6x86-q33q
+-  - **Known fixed versions:** 2.31.0
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q, https://github.com/psf/requests/releases/tag/v2.31.0, https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5, https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y/
+-- **OSV ID:** PYSEC-2026-1872
+-  - **Summary:** Requests vulnerable to .netrc credentials leak via malicious URLs
+-  - **Aliases:** CVE-2024-47081, GHSA-9hjg-9r4m-mvj7
+-  - **Known fixed versions:** 2.32.4
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7, https://nvd.nist.gov/vuln/detail/CVE-2024-47081, https://github.com/psf/requests/pull/6965, https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef, https://github.com/psf/requests
+-- **OSV ID:** PYSEC-2026-1873
+-  - **Summary:** Requests `Session` object does not verify requests after making first request with verify=False
+-  - **Aliases:** CVE-2024-35195, GHSA-9wx4-h78v-vm56
+-  - **Known fixed versions:** 2.32.0
+-  - **References:** https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56, https://nvd.nist.gov/vuln/detail/CVE-2024-35195, https://github.com/psf/requests/pull/6655, https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac, https://github.com/psf/requests
+-- **OSV ID:** PYSEC-2026-2275
+-  - **Summary:** No summary supplied by OSV.
+-  - **Aliases:** CVE-2026-25645, GHSA-gc5v-m9x4-r6x2
+-  - **Known fixed versions:** 2.33.0
+-  - **References:** https://github.com/psf/requests/releases/tag/v2.33.0, https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2, https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7
+-
+-### 2. flask==2.0.0
+-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:2`
+-- **Vulnerability query:** checked
+-- **Candidate fixed versions (review required):** 2.2.5, 2.3.2, 3.1.3
+-- **OSV ID:** GHSA-68rp-wp8r-4726
+-  - **Summary:** Flask session does not add `Vary: Cookie` header when accessed in some ways
+-  - **Aliases:** CVE-2026-27205, PYSEC-2026-2151
+-  - **Known fixed versions:** 3.1.3
+-  - **References:** https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726, https://nvd.nist.gov/vuln/detail/CVE-2026-27205, https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4, https://github.com/pallets/flask, https://github.com/pallets/flask/releases/tag/3.1.3
+-- **OSV ID:** GHSA-m2qf-hxjv-5gpq
+-  - **Summary:** Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header
+-  - **Aliases:** CVE-2023-30861, PYSEC-2023-62
+-  - **Known fixed versions:** 2.2.5, 2.3.2
+-  - **References:** https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq, https://nvd.nist.gov/vuln/detail/CVE-2023-30861, https://github.com/pallets/flask/commit/70f906c51ce49c485f1d355703e9cc3386b1cc2b, https://github.com/pallets/flask/commit/afd63b16170b7c047f5758eb910c416511e9c965, https://github.com/pallets/flask
+-- **OSV ID:** PYSEC-2023-62
+-  - **Summary:** No summary supplied by OSV.
+-  - **Aliases:** CVE-2023-30861, GHSA-m2qf-hxjv-5gpq
+-  - **Known fixed versions:** 2.2.5, 2.3.2
+-  - **References:** https://github.com/pallets/flask/commit/70f906c51ce49c485f1d355703e9cc3386b1cc2b, https://github.com/pallets/flask/releases/tag/2.3.2, https://github.com/pallets/flask/releases/tag/2.2.5, https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq, https://github.com/pallets/flask/commit/afd63b16170b7c047f5758eb910c416511e9c965
+-- **OSV ID:** PYSEC-2026-2151
+-  - **Summary:** No summary supplied by OSV.
+-  - **Aliases:** CVE-2026-27205, GHSA-68rp-wp8r-4726
+-  - **Known fixed versions:** 3.1.3
+-  - **References:** https://github.com/pallets/flask/releases/tag/3.1.3, https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726, https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4
++- **Raw OSV records:** 2
++- **Unique advisory groups:** 1
++
++- **CVE-2025-71176:** 2 OSV record(s)
++  - **Identifiers:** CVE-2025-71176, GHSA-6w46-j5rx-g56g, PYSEC-2026-1845
++
++## Findings and Applicability Evidence
++
++### 1. packaging<27.0,>=23.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** checked
++- No OSV results returned for this package query. This does not guarantee safety.
++
++### 2. tomli>=2.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** checked
++- No OSV results returned for this package query. This does not guarantee safety.
++
++### 3. pytest<9.0,>=8.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** checked
++- **Candidate fixed versions (review required):** 9.0.3
++- **OSV ID:** GHSA-6w46-j5rx-g56g
++  - **Summary:** pytest has vulnerable tmpdir handling
++  - **Aliases:** CVE-2025-71176, PYSEC-2026-1845
++  - **Known fixed versions:** 9.0.3
++- **OSV ID:** PYSEC-2026-1845
++  - **Summary:** pytest has vulnerable tmpdir handling
++  - **Aliases:** CVE-2025-71176, GHSA-6w46-j5rx-g56g
++  - **Known fixed versions:** 9.0.3
++
++### 4. ruff<1.0,>=0.11
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** checked
++- No OSV results returned for this package query. This does not guarantee safety.
+ 
+ ## Issues and Limitations
+ 
+ No analysis issues were recorded.
+ 
+-## Interpretation
++## Audit & Verification Evidence
+ 
+-This report is decision support, not a guarantee that the project is secure. OSV results depend on network availability and source coverage. Static parsing does not resolve the complete environment, prove that a vulnerability affects runtime behavior, or verify application compatibility. Candidate fixed versions require independent review and compatibility testing. No dependency files were changed by this analysis.
++This report provides traceable evidence from static manifest discovery, lockfile-aware resolution, and advisory checks. No dependency files were modified during this scan. All remediation candidates require independent review and isolated verification before deployment.
+diff --git a/docs/ARCHITECTURE.md b/docs/ARCHITECTURE.md
+index 7669001..9c051b2 100644
+--- a/docs/ARCHITECTURE.md
++++ b/docs/ARCHITECTURE.md
+@@ -9,7 +9,7 @@ AEGIS is a Python modular monolith. Its static analysis path is:
+ 3. `analysis`: orchestrate parsing, preserve source locations, and optionally query OSV.dev.
+ 4. `vulnerability`: use OSV.dev's public query API for PyPI package names.
+ 5. `remediation`: expose fixed versions observed in vulnerability records, constrained by declared specifiers where possible.
+-6. `reporting`: emit JSON and Markdown reports.
++6. `reporting`: emit JSON and Markdown reports, plus CycloneDX-style SBOM and SARIF exports available via the `--sbom` and `--sarif` CLI flags.
+ 7. `verification`: create a disposable project copy for later verification; this component deliberately does not execute code or install packages.
+ 
+ ## Trust boundaries
+@@ -21,6 +21,8 @@ Project files are read, not changed, by `scan`. Online vulnerability data is ext
+ - Root-level manifests only; no recursive discovery.
+ - `requirements.txt` parser handles PEP 508 declarations, blank lines, full-line comments, and simple line continuations. Pip options, nested `-r` files, editable installs, VCS references, and index configuration are reported as unsupported.
+ - `pyproject.toml` support currently reads PEP 621 `project.dependencies` and optional dependencies. Poetry/PDM-specific formats and lockfiles are not yet resolved.
+-- OSV lookup is package-level except for a single exact `==` pin. Applicability is not fully evaluated against all version ranges.
++- OSV lookup is package-level except for a single exact `==` pin. Applicability is now evaluated against affected ranges for the pinned version, and non-applicable advisories are filtered out of findings and remediation candidates; advisories without enough range data to decide are retained as conservative evidence.
+ - Fixed versions from OSV are not proof of compatibility. Candidate filtering by declared specifier can exclude the appropriate fix if a manifest constraint itself must be changed.
+-- Verification execution, lockfile updates, transitive dependency resolution, SBOM output, and AI assistance are future work.
++- Advisory identifiers from OSV (CVE, GHSA, PYSEC) are deduplicated case-insensitively in the analysis engine so JSON and Markdown reports share one grouped view.
++- SBOM (CycloneDX-style), SARIF, and the verification engine exist as library code and are exposed via the `--sbom` and `--sarif` CLI flags and the workspace helper. Verification execution deliberately does not run untrusted code.
++- Transitive dependency resolution, lockfile-aware remediation application, and AI assistance remain future work.
+diff --git a/offline-report.json b/offline-report.json
+index 49e58c8..28efaa2 100644
+--- a/offline-report.json
++++ b/offline-report.json
+@@ -1,25 +1,45 @@
+ {
+-  "project": "C:\\Users\\Aayush(work)\\aegis-demo",
+-  "generated_at": "2026-10-23T11:13:43.258277+00:00",
++  "project": "/home/z/my-project/audit/Aegis",
++  "generated_at": "2026-11-19T01:05:30.090196+00:00",
+   "manifests": [
+-    "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt"
++    "/home/z/my-project/audit/Aegis/pyproject.toml"
+   ],
+   "dependencies": [
+     {
+-      "name": "requests",
+-      "specifier": "==2.19.0",
+-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-      "line_number": 1,
++      "name": "packaging",
++      "specifier": "<27.0,>=23.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
+       "direct": true,
+       "extras": [],
+       "marker": null,
+       "url": null
+     },
+     {
+-      "name": "flask",
+-      "specifier": "==2.0.0",
+-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-      "line_number": 2,
++      "name": "tomli",
++      "specifier": ">=2.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
++      "direct": true,
++      "extras": [],
++      "marker": "python_version < \"3.11\"",
++      "url": null
++    },
++    {
++      "name": "pytest",
++      "specifier": "<9.0,>=8.0",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
++      "direct": true,
++      "extras": [],
++      "marker": null,
++      "url": null
++    },
++    {
++      "name": "ruff",
++      "specifier": "<1.0,>=0.11",
++      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++      "line_number": null,
+       "direct": true,
+       "extras": [],
+       "marker": null,
+@@ -29,10 +49,40 @@
+   "findings": [
+     {
+       "dependency": {
+-        "name": "requests",
+-        "specifier": "==2.19.0",
+-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-        "line_number": 1,
++        "name": "packaging",
++        "specifier": "<27.0,>=23.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
++        "direct": true,
++        "extras": [],
++        "marker": null,
++        "url": null
++      },
++      "vulnerabilities": [],
++      "recommended_versions": [],
++      "status": "not_checked"
++    },
++    {
++      "dependency": {
++        "name": "tomli",
++        "specifier": ">=2.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
++        "direct": true,
++        "extras": [],
++        "marker": "python_version < \"3.11\"",
++        "url": null
++      },
++      "vulnerabilities": [],
++      "recommended_versions": [],
++      "status": "not_checked"
++    },
++    {
++      "dependency": {
++        "name": "pytest",
++        "specifier": "<9.0,>=8.0",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
+         "direct": true,
+         "extras": [],
+         "marker": null,
+@@ -44,10 +94,10 @@
+     },
+     {
+       "dependency": {
+-        "name": "flask",
+-        "specifier": "==2.0.0",
+-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
+-        "line_number": 2,
++        "name": "ruff",
++        "specifier": "<1.0,>=0.11",
++        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
++        "line_number": null,
+         "direct": true,
+         "extras": [],
+         "marker": null,
+@@ -61,5 +111,6 @@
+   "issues": [],
+   "vulnerability_source": "OSV.dev API",
+   "complete": true,
+-  "schema_version": "1.0"
++  "schema_version": "1.0",
++  "grouped_advisories": []
+ }
+diff --git a/offline-report.md b/offline-report.md
+index 61410db..4fad53f 100644
+--- a/offline-report.md
++++ b/offline-report.md
+@@ -1,27 +1,48 @@
+-# AEGIS Dependency Analysis
++# AEGIS Dependency Analysis & Evidence Report
+ 
+-- **Project:** `C:\Users\Aayush(work)\aegis-demo`
+-- **Generated:** 2026-10-23T11:13:43.258277+00:00
++- **Project:** `/home/z/my-project/audit/Aegis`
++- **Generated:** 2026-11-19T01:05:30.090196+00:00
+ - **Analysis complete:** yes
+-- **Manifests:** 1
+-- **Dependency declarations:** 2
++- **Manifests discovered:** 1
++- **Dependency declarations:** 4
+ 
+-## Findings
++## Advisory Summary
+ 
+-### 1. requests==2.19.0
+-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:1`
+-- **Vulnerability query:** not_checked
++- **Raw OSV records:** 0
++- **Unique advisory groups:** 0
++
++No OSV advisory records were available to group.
++
++## Findings and Applicability Evidence
++
++### 1. packaging<27.0,>=23.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** not_checked
++- Vulnerability status was not established.
++
++### 2. tomli>=2.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** not_checked
++- Vulnerability status was not established.
++
++### 3. pytest<9.0,>=8.0
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** not_checked
+ - Vulnerability status was not established.
+ 
+-### 2. flask==2.0.0
+-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:2`
+-- **Vulnerability query:** not_checked
++### 4. ruff<1.0,>=0.11
++- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
++- **Declaration Type:** Direct
++- **Vulnerability Query Status:** not_checked
+ - Vulnerability status was not established.
+ 
+-## Issues and limitations
++## Issues and Limitations
+ 
+ No analysis issues were recorded.
+ 
+-## Interpretation
++## Audit & Verification Evidence
+ 
+-This report is decision support, not a guarantee that the project is secure. OSV results depend on network availability and source coverage. Static parsing does not resolve the complete environment, prove that a vulnerability affects runtime behavior, or verify application compatibility. No dependency files were changed by this analysis.
++This report provides traceable evidence from static manifest discovery, lockfile-aware resolution, and advisory checks. No dependency files were modified during this scan. All remediation candidates require independent review and isolated verification before deployment.
+diff --git a/src/aegis/analysis/engine.py b/src/aegis/analysis/engine.py
+index 0a29d9c..cbbe8da 100644
+--- a/src/aegis/analysis/engine.py
++++ b/src/aegis/analysis/engine.py
+@@ -3,15 +3,79 @@
+ from datetime import datetime, timezone
+ from pathlib import Path
+ 
++from packaging.version import InvalidVersion, Version
++
+ from aegis.discovery.manifests import discover_manifests
+ from aegis.models import AnalysisIssue, AnalysisReport, DependencyFinding
+ from aegis.parsing.lockfile import lockfile_to_dependencies, parse_lockfile
+ from aegis.parsing.pyproject import parse_pyproject
+ from aegis.parsing.requirements import parse_requirements_file, to_dependencies
+ from aegis.remediation.candidates import suggest_fixed_versions
++from aegis.vulnerability.advisories import group_advisories
++from aegis.vulnerability.applicability import is_vulnerability_applicable
+ from aegis.vulnerability.osv import OSVError, query_vulnerabilities
+ 
+ 
++def _pinned_versions(specifier: str) -> list[str]:
++    """Extract exact version pins from a dependency specifier.
++
++    Mirrors the OSV client's pin detection so applicability checks use the
++    same notion of "pinned version" as the OSV query payload.
++    """
++    pins: list[str] = []
++    for part in specifier.split(","):
++        part = part.strip()
++        if part.startswith("==") and not part.endswith(".*"):
++            pins.append(part[2:])
++    return pins
++
++
++def _filter_applicability(finding: DependencyFinding) -> bool:
++    """Filter finding vulnerabilities by applicability to the pinned version.
++
++    When the dependency has exactly one pinned version, vulnerabilities that
++    are explicitly not applicable (return False) are dropped. Undecidable
++    cases (None) are retained as conservative evidence. Recommended fixed
++    versions are restricted to vulnerabilities confirmed as applicable (True).
++
++    Returns True when applicability filtering was applied (and
++    ``recommended_versions`` was populated); False when no filtering was
++    possible and the caller should fall back to ``suggest_fixed_versions``.
++    """
++    if not finding.vulnerabilities:
++        return False
++
++    pins = _pinned_versions(finding.dependency.specifier)
++    if len(pins) != 1:
++        # Without a single exact pin, applicability cannot be decided;
++        # fall back to the existing aggregate behaviour.
++        return False
++
++    version_str = pins[0]
++    kept: list = []
++    applicable_fixed: set[str] = set()
++
++    for vuln in finding.vulnerabilities:
++        applicable = is_vulnerability_applicable(vuln, version_str)
++        if applicable is False:
++            # Explicitly not applicable to this pinned version; drop it.
++            continue
++        kept.append(vuln)
++        if applicable is True:
++            applicable_fixed.update(vuln.fixed_versions)
++
++    finding.vulnerabilities = kept
++
++    candidates: set[Version] = set()
++    for version in applicable_fixed:
++        try:
++            candidates.add(Version(version))
++        except InvalidVersion:
++            continue
++    finding.recommended_versions = [str(v) for v in sorted(candidates)]
++    return True
++
++
+ def analyze_project(
+     project: str | Path, check_vulnerabilities: bool = True, timeout: float = 12.0
+ ) -> AnalysisReport:
+@@ -67,7 +131,17 @@ def analyze_project(
+                         dep.line_number,
+                     )
+                 )
+-        finding.recommended_versions = suggest_fixed_versions(finding)
++            # Apply per-finding applicability filtering before deriving
++            # recommended versions so non-applicable advisories do not
++            # pollute remediation candidates. Offline findings (empty
++            # vulnerabilities) are unaffected. When filtering does not
++            # apply (no pinned version, no vulnerabilities), fall back to
++            # the existing aggregate behaviour.
++            applicability_applied = _filter_applicability(finding)
++            if not applicability_applied:
++                finding.recommended_versions = suggest_fixed_versions(finding)
++        else:
++            finding.recommended_versions = suggest_fixed_versions(finding)
+         report.findings.append(finding)
+     report.complete = not any(i.severity == "error" for i in report.issues) and not any(
+         i.code
+@@ -79,4 +153,14 @@ def analyze_project(
+         }
+         for i in report.issues
+     )
++    # Collect all vulnerabilities across findings and pre-compute advisory
++    # groups once. Case-insensitive deduplication happens here so JSON
++    # output and Markdown writers share the same grouped view rather than
++    # each re-deriving it (and potentially diverging).
++    all_vulnerabilities = [
++        vuln
++        for finding in report.findings
++        for vuln in finding.vulnerabilities
++    ]
++    report.grouped_advisories = group_advisories(all_vulnerabilities)
+     return report
+\ No newline at end of file
+diff --git a/src/aegis/cli.py b/src/aegis/cli.py
+index 1c3a019..859cfae 100644
+--- a/src/aegis/cli.py
++++ b/src/aegis/cli.py
+@@ -6,6 +6,7 @@ from pathlib import Path
+ 
+ from aegis import __version__
+ from aegis.analysis.engine import analyze_project
++from aegis.reporting.exporters import export_sarif, export_sbom
+ from aegis.reporting.writers import write_json, write_markdown
+ from aegis.verification.sandbox import create_workspace
+ 
+@@ -59,6 +60,20 @@ def build_parser() -> argparse.ArgumentParser:
+         default=Path("aegis-report.md"),
+         help="Markdown report path",
+     )
++    scan.add_argument(
++        "--sbom",
++        dest="sbom_path",
++        type=Path,
++        default=None,
++        help="Optional CycloneDX-style SBOM export path",
++    )
++    scan.add_argument(
++        "--sarif",
++        dest="sarif_path",
++        type=Path,
++        default=None,
++        help="Optional SARIF export path for security findings",
++    )
+     scan.add_argument(
+         "--fail-on-vulnerability",
+         action="store_true",
+@@ -108,6 +123,14 @@ def main(argv: list[str] | None = None) -> int:
+         write_json(report, args.json_path)
+         write_markdown(report, args.markdown_path)
+ 
++        if args.sbom_path is not None:
++            export_sbom(report, args.sbom_path)
++            print(f"SBOM report: {args.sbom_path.resolve()}")
++
++        if args.sarif_path is not None:
++            export_sarif(report, args.sarif_path)
++            print(f"SARIF report: {args.sarif_path.resolve()}")
++
+         vulns = sum(len(f.vulnerabilities) for f in report.findings)
+ 
+         print(f"AEGIS analysis {'complete' if report.complete else 'incomplete'}")
+diff --git a/src/aegis/models.py b/src/aegis/models.py
+index ea8f387..f7b1c3a 100644
+--- a/src/aegis/models.py
++++ b/src/aegis/models.py
+@@ -61,6 +61,11 @@ class AnalysisReport:
+     vulnerability_source: str = "OSV.dev API"
+     complete: bool = True
+     schema_version: str = "1.0"
++    # Populated by analyze_project after findings are collected; stores
++    # AdvisoryGroup records across all findings so JSON output and writers
++    # share the same deduplicated, case-insensitive grouping. Typed as a
++    # bare ``list`` to avoid a circular import with ``advisories``.
++    grouped_advisories: list[Any] = field(default_factory=list)
+ 
+ 
+ def to_jsonable(value: Any) -> Any:
+diff --git a/src/aegis/remediation/executor.py b/src/aegis/remediation/executor.py
+index 02df74c..067d173 100644
+--- a/src/aegis/remediation/executor.py
++++ b/src/aegis/remediation/executor.py
+@@ -2,6 +2,7 @@
+ 
+ from __future__ import annotations
+ 
++import re
+ from dataclasses import dataclass, field
+ from pathlib import Path
+ 
+@@ -56,9 +57,21 @@ def apply_proposal_to_workspace(
+     updated_lines = []
+     replaced = False
+ 
++    # Build a regex anchored to the exact package name followed by a version
++    # specifier operator. This prevents a prefix-only check from rewriting an
++    # unrelated package whose name merely starts with the target package name
++    # (e.g., rewriting `requests-toolbelt==1.0` when remediating `requests`).
++    name_pattern = re.escape(proposal.package_name)
++    pin_pattern = re.compile(
++        rf"^{name_pattern}\s*==\s*[^;\s]+", re.IGNORECASE
++    )
++
+     for line in lines:
+-        # Basic matching for requirements.txt style declarations
+-        if line.strip().startswith(proposal.package_name):
++        # Basic matching for requirements.txt style declarations.
++        # Use an exact anchored match against `<name>==<version>` so that a
++        # package whose name starts with `proposal.package_name` (e.g.
++        # `requests-toolbelt`) is not mistakenly rewritten.
++        if pin_pattern.match(line.strip()):
+             updated_lines.append(f"{proposal.package_name}=={proposal.target_version}")
+             replaced = True
+         else:
+diff --git a/src/aegis/reporting/writers.py b/src/aegis/reporting/writers.py
+index 5826b66..512d1d0 100644
+--- a/src/aegis/reporting/writers.py
++++ b/src/aegis/reporting/writers.py
+@@ -51,11 +51,19 @@ def write_markdown(
+         len(finding.vulnerabilities) for finding in report.findings
+     )
+ 
+-    advisory_groups = [
+-        (finding, group)
+-        for finding in report.findings
+-        for group in group_advisories(finding.vulnerabilities)
+-    ]
++    # Prefer the engine-precomputed, case-insensitively grouped advisory
++    # list when available so JSON and Markdown stay consistent. Fall back
++    # to per-finding grouping for reports constructed outside the engine
++    # (e.g. tests, ad-hoc reports) that do not populate the field.
++    precomputed_groups = getattr(report, "grouped_advisories", None)
++    if precomputed_groups:
++        advisory_groups = precomputed_groups
++    else:
++        advisory_groups = [
++            group
++            for finding in report.findings
++            for group in group_advisories(finding.vulnerabilities)
++        ]
+ 
+     lines.extend(
+         [
+@@ -68,9 +76,9 @@ def write_markdown(
+     )
+ 
+     if advisory_groups:
+-        for finding, group in advisory_groups:
++        for group in advisory_groups:
+             lines.append(
+-                f"- **{finding.dependency.name} — {group.canonical_id}:** "
++                f"- **{group.canonical_id}:** "
+                 f"{len(group.records)} OSV record(s)"
+             )
+             lines.append(f"  - **Identifiers:** {', '.join(group.identifiers)}")
+diff --git a/src/aegis/vulnerability/advisories.py b/src/aegis/vulnerability/advisories.py
+index 47f8d26..bce77c6 100644
+--- a/src/aegis/vulnerability/advisories.py
++++ b/src/aegis/vulnerability/advisories.py
+@@ -42,10 +42,14 @@ def group_advisories(
+ ) -> list[AdvisoryGroup]:
+     """Group records sharing an ID or alias without discarding source records.
+ 
+-    Identifier matching is case-sensitive. Records without a shared identifier
+-    remain separate. The canonical ID is the lexicographically smallest
+-    identifier in the connected group, making it deterministic for a given
+-    input set.
++    Identifier matching is case-insensitive: identifiers are normalized to
++    uppercase before building the union-find sets so that, for example,
++    ``cve-2026-12345``, ``CVE-2026-12345``, and ``Cve-2026-12345`` are
++    treated as the same identifier. Original records (including their
++    ``id`` and ``aliases`` casing) are preserved unchanged. Records without
++    a shared identifier remain separate. The canonical ID is the
++    lexicographically smallest identifier (in its original casing) in the
++    connected group, making it deterministic for a given input set.
+     """
+     if not vulnerabilities:
+         return []
+@@ -68,8 +72,13 @@ def group_advisories(
+     identifier_owner: dict[str, int] = {}
+ 
+     for index, vulnerability in enumerate(vulnerabilities):
+-        identifiers = {vulnerability.id, *vulnerability.aliases}
+-        identifiers.discard("")
++        # Normalize identifiers to uppercase for case-insensitive matching.
++        # Original record fields are left untouched.
++        identifiers = {
++            identifier.upper()
++            for identifier in [vulnerability.id, *vulnerability.aliases]
++            if identifier
++        }
+ 
+         for identifier in identifiers:
+             owner = identifier_owner.get(identifier)
+diff --git a/src/aegis/vulnerability/osv.py b/src/aegis/vulnerability/osv.py
+index 548c484..9acbeb7 100644
+--- a/src/aegis/vulnerability/osv.py
++++ b/src/aegis/vulnerability/osv.py
+@@ -3,6 +3,7 @@
+ from __future__ import annotations
+ 
+ import json
++import time
+ import urllib.error
+ import urllib.request
+ 
+@@ -13,6 +14,11 @@ from aegis.models import Dependency, Vulnerability
+ OSV_QUERY_URL = "https://api.osv.dev/v1/query"
+ USER_AGENT = "AEGIS-dependency-security/0.2"
+ 
++# Retry policy for transient HTTP 429 (Too Many Requests) responses.
++# Exponential backoff in seconds: 1, 2, 4. No jitter to keep behaviour
++# deterministic and dependency-free.
++_RATE_LIMIT_BACKOFF_SECONDS = (1.0, 2.0, 4.0)
++
+ 
+ class OSVError(RuntimeError):
+     """Raised when the OSV query cannot be completed."""
+@@ -39,21 +45,7 @@ def query_vulnerabilities(
+         method="POST",
+     )
+ 
+-    try:
+-        with urllib.request.urlopen(request, timeout=timeout) as response:
+-            body = json.loads(response.read().decode("utf-8"))
+-    except urllib.error.HTTPError as exc:
+-        if exc.code == 429:
+-            raise OSVError(
+-                "Rate limit exceeded (HTTP 429) while querying OSV.dev."
+-            ) from exc
+-        raise OSVError(f"HTTP error {exc.code}: {exc.reason}") from exc
+-    except urllib.error.URLError as exc:
+-        raise OSVError(f"Network error: {exc.reason}") from exc
+-    except TimeoutError as exc:
+-        raise OSVError(f"Request timed out after {timeout} seconds.") from exc
+-    except (OSError, json.JSONDecodeError) as exc:
+-        raise OSVError(f"Invalid response or system error: {exc}") from exc
++    body = _execute_with_rate_limit_retry(request, timeout)
+ 
+     results = []
+ 
+@@ -113,6 +105,49 @@ def query_vulnerabilities(
+     return results
+ 
+ 
++def _execute_with_rate_limit_retry(
++    request: urllib.request.Request, timeout: float
++) -> dict:
++    """Execute an OSV HTTP request, retrying transient HTTP 429 responses.
++
++    Retries up to ``len(_RATE_LIMIT_BACKOFF_SECONDS)`` times on HTTP 429
++    only, sleeping for the corresponding backoff duration between attempts.
++    Other HTTP errors, network errors, timeouts, and parse errors are
++    surfaced immediately as :class:`OSVError` without retry.
++    """
++    max_retries = len(_RATE_LIMIT_BACKOFF_SECONDS)
++    last_rate_limit_error: OSVError | None = None
++
++    for attempt in range(max_retries + 1):
++        try:
++            with urllib.request.urlopen(request, timeout=timeout) as response:
++                return json.loads(response.read().decode("utf-8"))
++        except urllib.error.HTTPError as exc:
++            if exc.code == 429:
++                last_rate_limit_error = OSVError(
++                    "Rate limit exceeded (HTTP 429) while querying OSV.dev."
++                )
++                if attempt < max_retries:
++                    time.sleep(_RATE_LIMIT_BACKOFF_SECONDS[attempt])
++                    continue
++                raise last_rate_limit_error from exc
++            raise OSVError(f"HTTP error {exc.code}: {exc.reason}") from exc
++        except urllib.error.URLError as exc:
++            raise OSVError(f"Network error: {exc.reason}") from exc
++        except TimeoutError as exc:
++            raise OSVError(f"Request timed out after {timeout} seconds.") from exc
++        except (OSError, json.JSONDecodeError) as exc:
++            raise OSVError(f"Invalid response or system error: {exc}") from exc
++
++    # Defensive fallback: loop exited without returning or raising. Should
++    # be unreachable because the final 429 attempt raises above, but keep
++    # the explicit error to satisfy type checkers and guard against future
++    # edits to the retry policy.
++    raise last_rate_limit_error or OSVError(
++        "Rate limit exceeded (HTTP 429) while querying OSV.dev."
++    )
++
++
+ def _pinned_versions(specifier: str) -> list[str]:
+     """Extract exact version pins from a dependency specifier."""
+     pins = []
+diff --git a/tests/test_osv_errors.py b/tests/test_osv_errors.py
+index 9394aaa..68c0082 100644
+--- a/tests/test_osv_errors.py
++++ b/tests/test_osv_errors.py
+@@ -6,13 +6,16 @@ from unittest.mock import patch
+ import pytest
+ 
+ from aegis.models import Dependency
++from aegis.vulnerability import osv as osv_module
+ from aegis.vulnerability.osv import OSVError, query_vulnerabilities
+ 
+ 
+ def test_osv_rate_limit_error() -> None:
+     dep = Dependency(name="requests", specifier="==2.31.0")
+-    
+-    with patch("urllib.request.urlopen") as mock_urlopen:
++
++    with patch("urllib.request.urlopen") as mock_urlopen, patch(
++        "aegis.vulnerability.osv.time.sleep"
++    ) as mock_sleep:
+         mock_urlopen.side_effect = urllib.error.HTTPError(
+             url="https://api.osv.dev/v1/query",
+             code=429,
+@@ -24,6 +27,13 @@ def test_osv_rate_limit_error() -> None:
+         with pytest.raises(OSVError, match="Rate limit exceeded"):
+             query_vulnerabilities(dep)
+ 
++        # Verify the retry policy actually fired: one initial attempt plus
++        # three retries on HTTP 429, with exponential backoff sleeps.
++        assert mock_urlopen.call_count == len(osv_module._RATE_LIMIT_BACKOFF_SECONDS) + 1
++        assert mock_sleep.call_count == len(osv_module._RATE_LIMIT_BACKOFF_SECONDS)
++        actual_backoffs = [call.args[0] for call in mock_sleep.call_args_list]
++        assert actual_backoffs == list(osv_module._RATE_LIMIT_BACKOFF_SECONDS)
++
+ 
+ def test_osv_timeout_error() -> None:
+     dep = Dependency(name="requests", specifier="==2.31.0")

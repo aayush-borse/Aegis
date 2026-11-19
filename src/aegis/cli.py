@@ -6,6 +6,7 @@ from pathlib import Path
 
 from aegis import __version__
 from aegis.analysis.engine import analyze_project
+from aegis.reporting.exporters import export_sarif, export_sbom
 from aegis.reporting.writers import write_json, write_markdown
 from aegis.verification.sandbox import create_workspace
 
@@ -60,6 +61,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="Markdown report path",
     )
     scan.add_argument(
+        "--sbom",
+        dest="sbom_path",
+        type=Path,
+        default=None,
+        help="Optional CycloneDX-style SBOM export path",
+    )
+    scan.add_argument(
+        "--sarif",
+        dest="sarif_path",
+        type=Path,
+        default=None,
+        help="Optional SARIF export path for security findings",
+    )
+    scan.add_argument(
         "--fail-on-vulnerability",
         action="store_true",
         help="Exit with code 1 if any OSV records are returned",
@@ -107,6 +122,14 @@ def main(argv: list[str] | None = None) -> int:
 
         write_json(report, args.json_path)
         write_markdown(report, args.markdown_path)
+
+        if args.sbom_path is not None:
+            export_sbom(report, args.sbom_path)
+            print(f"SBOM report: {args.sbom_path.resolve()}")
+
+        if args.sarif_path is not None:
+            export_sarif(report, args.sarif_path)
+            print(f"SARIF report: {args.sarif_path.resolve()}")
 
         vulns = sum(len(f.vulnerabilities) for f in report.findings)
 

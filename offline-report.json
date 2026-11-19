@@ -1,25 +1,45 @@
 {
-  "project": "C:\\Users\\Aayush(work)\\aegis-demo",
-  "generated_at": "2026-10-23T11:13:43.258277+00:00",
+  "project": "/home/z/my-project/audit/Aegis",
+  "generated_at": "2026-11-19T01:05:30.090196+00:00",
   "manifests": [
-    "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt"
+    "/home/z/my-project/audit/Aegis/pyproject.toml"
   ],
   "dependencies": [
     {
-      "name": "requests",
-      "specifier": "==2.19.0",
-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
-      "line_number": 1,
+      "name": "packaging",
+      "specifier": "<27.0,>=23.0",
+      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+      "line_number": null,
       "direct": true,
       "extras": [],
       "marker": null,
       "url": null
     },
     {
-      "name": "flask",
-      "specifier": "==2.0.0",
-      "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
-      "line_number": 2,
+      "name": "tomli",
+      "specifier": ">=2.0",
+      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+      "line_number": null,
+      "direct": true,
+      "extras": [],
+      "marker": "python_version < \"3.11\"",
+      "url": null
+    },
+    {
+      "name": "pytest",
+      "specifier": "<9.0,>=8.0",
+      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+      "line_number": null,
+      "direct": true,
+      "extras": [],
+      "marker": null,
+      "url": null
+    },
+    {
+      "name": "ruff",
+      "specifier": "<1.0,>=0.11",
+      "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+      "line_number": null,
       "direct": true,
       "extras": [],
       "marker": null,
@@ -29,10 +49,10 @@
   "findings": [
     {
       "dependency": {
-        "name": "requests",
-        "specifier": "==2.19.0",
-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
-        "line_number": 1,
+        "name": "packaging",
+        "specifier": "<27.0,>=23.0",
+        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+        "line_number": null,
         "direct": true,
         "extras": [],
         "marker": null,
@@ -44,10 +64,40 @@
     },
     {
       "dependency": {
-        "name": "flask",
-        "specifier": "==2.0.0",
-        "source": "C:\\Users\\Aayush(work)\\aegis-demo\\requirements.txt",
-        "line_number": 2,
+        "name": "tomli",
+        "specifier": ">=2.0",
+        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+        "line_number": null,
+        "direct": true,
+        "extras": [],
+        "marker": "python_version < \"3.11\"",
+        "url": null
+      },
+      "vulnerabilities": [],
+      "recommended_versions": [],
+      "status": "not_checked"
+    },
+    {
+      "dependency": {
+        "name": "pytest",
+        "specifier": "<9.0,>=8.0",
+        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+        "line_number": null,
+        "direct": true,
+        "extras": [],
+        "marker": null,
+        "url": null
+      },
+      "vulnerabilities": [],
+      "recommended_versions": [],
+      "status": "not_checked"
+    },
+    {
+      "dependency": {
+        "name": "ruff",
+        "specifier": "<1.0,>=0.11",
+        "source": "/home/z/my-project/audit/Aegis/pyproject.toml",
+        "line_number": null,
         "direct": true,
         "extras": [],
         "marker": null,
@@ -61,5 +111,6 @@
   "issues": [],
   "vulnerability_source": "OSV.dev API",
   "complete": true,
-  "schema_version": "1.0"
+  "schema_version": "1.0",
+  "grouped_advisories": []
 }

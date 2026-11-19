@@ -1,27 +1,48 @@
-# AEGIS Dependency Analysis
+# AEGIS Dependency Analysis & Evidence Report
 
-- **Project:** `C:\Users\Aayush(work)\aegis-demo`
-- **Generated:** 2026-10-23T11:13:43.258277+00:00
+- **Project:** `/home/z/my-project/audit/Aegis`
+- **Generated:** 2026-11-19T01:05:30.090196+00:00
 - **Analysis complete:** yes
-- **Manifests:** 1
-- **Dependency declarations:** 2
+- **Manifests discovered:** 1
+- **Dependency declarations:** 4
 
-## Findings
+## Advisory Summary
 
-### 1. requests==2.19.0
-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:1`
-- **Vulnerability query:** not_checked
+- **Raw OSV records:** 0
+- **Unique advisory groups:** 0
+
+No OSV advisory records were available to group.
+
+## Findings and Applicability Evidence
+
+### 1. packaging<27.0,>=23.0
+- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
+- **Declaration Type:** Direct
+- **Vulnerability Query Status:** not_checked
 - Vulnerability status was not established.
 
-### 2. flask==2.0.0
-- **Source:** `C:\Users\Aayush(work)\aegis-demo\requirements.txt:2`
-- **Vulnerability query:** not_checked
+### 2. tomli>=2.0
+- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
+- **Declaration Type:** Direct
+- **Vulnerability Query Status:** not_checked
 - Vulnerability status was not established.
 
-## Issues and limitations
+### 3. pytest<9.0,>=8.0
+- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
+- **Declaration Type:** Direct
+- **Vulnerability Query Status:** not_checked
+- Vulnerability status was not established.
+
+### 4. ruff<1.0,>=0.11
+- **Source Provenance:** `/home/z/my-project/audit/Aegis/pyproject.toml`
+- **Declaration Type:** Direct
+- **Vulnerability Query Status:** not_checked
+- Vulnerability status was not established.
+
+## Issues and Limitations
 
 No analysis issues were recorded.
 
-## Interpretation
+## Audit & Verification Evidence
 
-This report is decision support, not a guarantee that the project is secure. OSV results depend on network availability and source coverage. Static parsing does not resolve the complete environment, prove that a vulnerability affects runtime behavior, or verify application compatibility. No dependency files were changed by this analysis.
+This report provides traceable evidence from static manifest discovery, lockfile-aware resolution, and advisory checks. No dependency files were modified during this scan. All remediation candidates require independent review and isolated verification before deployment.

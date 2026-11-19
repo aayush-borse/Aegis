@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -56,9 +57,21 @@ def apply_proposal_to_workspace(
     updated_lines = []
     replaced = False
 
+    # Build a regex anchored to the exact package name followed by a version
+    # specifier operator. This prevents a prefix-only check from rewriting an
+    # unrelated package whose name merely starts with the target package name
+    # (e.g., rewriting `requests-toolbelt==1.0` when remediating `requests`).
+    name_pattern = re.escape(proposal.package_name)
+    pin_pattern = re.compile(
+        rf"^{name_pattern}\s*==\s*[^;\s]+", re.IGNORECASE
+    )
+
     for line in lines:
-        # Basic matching for requirements.txt style declarations
-        if line.strip().startswith(proposal.package_name):
+        # Basic matching for requirements.txt style declarations.
+        # Use an exact anchored match against `<name>==<version>` so that a
+        # package whose name starts with `proposal.package_name` (e.g.
+        # `requests-toolbelt`) is not mistakenly rewritten.
+        if pin_pattern.match(line.strip()):
             updated_lines.append(f"{proposal.package_name}=={proposal.target_version}")
             replaced = True
         else:
